@@ -1,187 +1,366 @@
- /* Définition de constantes */
- :root {
-     --padding: 8px;
-     --padding: 6px;
-     --border-radius: 10px;
-     --scroolbar-with: 10px;
- }
+body {
+  max-width: 1000px;
+  margin: auto;
+}
 
- /* Remettre à zéro les marges de tous éléments pour contrecarrer les valeurs par défaut prédéfinies du fureteur */
- * {
-     margin: 0px;
-     padding: 0px;
-     box-sizing: border-box;
- }
+/* Définition de constantes */
+:root {
+  --padding: 8px;
+  --padding: 6px;
+  --border-radius: 10px;
+  --scroolbar-with: 10px;
+}
 
- /* Classe pour la mise en page utilisant les "flexbox" */
- .page {
-     /* disposition verticale des sections header, main et footer */
-     display: flex;
-     flex-direction: column;
-     height: 100vh;
-     gap: var(--padding);
-     padding: var(--padding);
+/* Remettre à zéro les marges de tous éléments pour contrecarrer les valeurs par défaut prédéfinies du fureteur */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
 
-     .favicon {
-         height: 32px;
-         width: 32px;
-     }
+/* Classe pour la mise en page utilisant les "flexbox" */
+.page {
+  /* disposition verticale des sections header, main et footer */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  gap: var(--padding);
+  padding: var(--padding);
 
-     .header,
-     .footer {
-         font-size: 1.5em;
-         font-weight: bolder;
-         display: flex;
-         gap: 8px;
-         align-items: center;
+  .favicon {
+    height: 32px;
+    width: 32px;
+  }
 
-         .menu {
-             /* disposition horizontale des items de menu */
-             display: flex;
-             gap: 12px;
-             flex-wrap: wrap;
-             justify-content: left;
-         }
+  .header,
+  .footer {
+    font-size: 2.2em;
+    font-weight: bolder;
+    display: flex;
+    font-family: "Courier New", Courier, monospace;
+    gap: 8px;
+    align-items: center;
+    background-color: rgb(208, 255, 255);
 
-         .menuItem {
-             flex-grow: 1;
-             /* taille adaptative */
-             font-size: 0.60em;
-             font-weight: bold;
-             text-decoration: none;
-             color: dodgerblue;
-             border: none
-         }
+    .menu {
+      /* disposition horizontale des items de menu */
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: left;
+    }
 
-         .selectedMenuItem {
-             color: blue;
-         }
-     }
+    .menuItem {
+      flex-grow: 1;
+      /* taille adaptative */
+      font-size: 0.8em;
+      font-weight: bold;
+      text-decoration: none;
+      color: dodgerblue;
+      border: none;
+      font-family: "Dancing Script", cursive;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+    }
 
-     .main {
-         /* permettre de le formatage flex du parent */
-         flex: 1;
-         /* hauteur minimum relative à la hauteur du viewport*/
-         min-height: 10vh;
-         /* contrecarrer les styles de la classe page */
-         border: none;
-         padding: 0px;
-         background: white;
+    .selectedMenuItem {
+      color: blue;
+    }
+  }
 
-         /* Alignement horizontal des éléments enfants */
-         display: flex;
-         flex-direction: row;
-         gap: var(--padding);
+  .main {
+    /* permettre de le formatage flex du parent */
+    flex: 1;
+    /* hauteur minimum relative à la hauteur du viewport*/
+    min-height: 10vh;
+    /* contrecarrer les styles de la classe page */
+    border: none;
+    padding: 0px;
 
-         .scrollSection {
-             overflow-y: auto;
-         }
+    background: white;
 
-         .content {
-             flex-grow: 1;
+    /* Alignement horizontal des éléments enfants */
+    display: flex;
+    flex-direction: row;
+    gap: var(--padding);
 
-             .bigImage {
-                 background-position: center;
-                 background-repeat: no-repeat;
-                 background-size: cover;
-                 aspect-ratio: 16/9;
-             }
+    .scrollSection {
+      overflow-y: auto;
+    }
 
+    .content {
+      flex-grow: 1;
 
-         }
+      .bigImage {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        aspect-ratio: 16/9;
+      }
+    }
 
-         .justifiedText {
-             text-align: justify;
-         }
+    .justifiedText {
+      text-align: justify;
+    }
 
-         .left_Aside {
-             flex: 1;
-             min-width: 100px;
-             max-width: 120px;
-         }
+    .left_Aside {
+      flex: 1;
+      min-width: 100px;
+      max-width: 120px;
+    }
 
-         .right_Aside {
-             flex: 1;
-             min-width: 60px;
-             max-width: 120px;
-         }
+    .right_Aside {
+      flex: 1;
+      min-width: 60px;
+      max-width: 120px;
+    }
+  }
 
-     }
+  .main > * {
+    background: white;
+    padding: var(--padding);
+    border: 1px solid gray;
+  }
+}
 
-     .main>* {
-         background: white;
-         padding: var(--padding);
-         border: 1px solid gray;
-     }
- }
+.page > * {
+  /* cibler tout les enfants enfant de l'éléments de classe page */
+  background: lightgray;
+  padding: 1rem;
+  border: 1px solid gray;
+}
 
- .page>* {
-     /* cibler tout les enfants enfant de l'éléments de classe page */
-     background: lightgray;
-     padding: 1rem;
-     border: 1px solid gray;
- }
+/* disposer une liste d'icone font-awsome vertivalement */
+.iconList {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 8px;
+}
 
+/* style pour formater les icones de classe font-awsome */
+.fa-icon {
+  flex: 1;
+  font-size: 2em;
+  color: dodgerblue;
+  cursor: pointer;
+}
 
- /* disposer une liste d'icone font-awsome vertivalement */
- .iconList {
-     display: flex;
-     flex-direction: column;
-     text-align: center;
-     gap: 8px;
- }
+/* Changer la couleur de l'élément survolé de classe fa-icon */
+.fa-icon:hover {
+  color: blue;
+}
 
- /* style pour formater les icones de classe font-awsome */
- .fa-icon {
-     flex: 1;
-     font-size: 2em;
-     color: dodgerblue;
-     cursor: pointer;
- }
+/*** classes pour l'apparence de la barre de défilement ***/
+::-webkit-scrollbar {
+  border-radius: var(--border-radius);
+  width: var(--scroolbar-with);
+}
 
- /* Changer la couleur de l'élément survolé de classe fa-icon */
- .fa-icon:hover {
-     color: blue;
- }
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: var(--border-radius);
+}
 
+::-webkit-scrollbar-thumb {
+  border-radius: var(--border-radius);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
 
- /*** classes pour l'apparence de la barre de défilement ***/
- ::-webkit-scrollbar {
-     border-radius: var(--border-radius);
-     width: var(--scroolbar-with);
- }
+.momo-trust-display-regular {
+  font-family: "Momo Trust Display", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.8em;
+}
 
- ::-webkit-scrollbar-track {
-     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-     border-radius: var(--border-radius);
- }
+.author {
+  margin-top: 50px;
+  min-width: 300px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.4em;
 
- ::-webkit-scrollbar-thumb {
-     border-radius: var(--border-radius);
-     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
- }
+  ul {
+    list-style-type: none;
+  }
+}
 
- .momo-trust-display-regular {
-     font-family: "Momo Trust Display", sans-serif;
-     font-weight: 400;
-     font-style: normal;
-     font-size: 1.8em;
- }
+/*Icon personnel dans about me*/
+.iconContainer {
+  border-radius: 200px;
+  width: 220px;
+  height: 220px;
+  border: solid rgb(0, 60, 134);
+  display: flex;
+}
 
- .author {
-     width: 30%;
-     min-width: 300px;
-     margin: auto;
-     margin-top: 50px;
-     font-size: 1.5em;
+.icon {
+  border-radius: 200px;
+  width: 1px;
+  height: 215px;
+  flex: auto;
+  display: block;
+  margin: auto;
+  object-fit: cover;
+}
 
-     ul {
-         list-style-type: none;
-     }
- }
+.headerTitle {
+  font-family: Courier, monospace;
+}
 
- /*Icon personnel dans about me*/
- .aboutIcon{
-    border-radius: 20px;
-    background-image: url(images/martinmatte.png);
- }
+.gridIcon {
+  grid-template-columns: 600px auto;
+  display: grid;
+}
+/*Accueil*/
+.textIndex {
+  margin-top: 50px;
+  font-size: 30px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.imagesContainerAccueil {
+  flex-direction: column;
+  flex-wrap: wrap;
+  display: flex;
+  height: 850px;
+  width: 400px;
+  margin-left: 90px;
+}
+.imagesAccueil {
+  max-width: 500px;
+  flex: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.textDiscipline {
+  font-size: 30px;
+  margin-top: 30px;
+  font-style: italic;
+}
+
+.bandeVerticalAccueil {
+  background-color: rgb(118, 79, 155);
+}
+
+/*page1*/
+
+.video {
+  height: 400px;
+  flex: auto;
+  max-width: 500px;
+}
+.flexContainer {
+  flex-wrap: wrap;
+  display: flex;
+  height: 400px;
+}
+
+.bigImage {
+  max-width: 500px;
+  flex: auto;
+  object-fit: cover;
+}
+.texteWeb {
+  font-size: 25px;
+  color: rgb(100, 9, 47);
+  margin-top: 100px;
+}
+
+@media (max-width: 830px) {
+  .flexContainer {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+  }
+  .bigImage {
+    width: 0;
+  }
+  .video {
+    height: 500px;
+    width: 800px;
+  }
+}
+
+/*page2*/
+
+.gridForme {
+  grid-template-columns: auto auto auto;
+  display: grid;
+}
+.square {
+  background-color: green;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}
+
+.cercle {
+  background-color: green;
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}
+
+.texteReseau {
+  font-size: 25px;
+  color: rgb(12, 88, 46);
+  margin-top: 60px;
+  font-style: bold;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+/*page3*/
+
+.texteBase {
+  font-size: 25px;
+  color: rgb(67, 92, 53);
+  margin-top: 60px;
+  font-style: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.baseDonneForme {
+  background-color: rgb(60, 60, 165);
+  width: 120px;
+  height: 230px;
+  margin-left: 100px;
+  margin-top: 80px;
+  margin: auto;
+}
+
+.gridBaseDonne {
+  grid-template-columns: auto auto;
+  display: grid;
+}
+
+.basBaseDonne {
+  background-color: rgb(114, 114, 165);
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  margin-top: 30px;
+  margin-left: 10px;
+}
+.hautBaseDonne {
+  background-color: rgb(114, 114, 165);
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  margin-left: 10px;
+}
+
+@media (max-width: 800px) {
+  .texteBase {
+    font-size: 20px;
+    color: rgb(67, 92, 53);
+    margin-top: 60px;
+    font-style: bold;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+}

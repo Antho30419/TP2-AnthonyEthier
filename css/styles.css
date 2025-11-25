@@ -363,4 +363,8 @@ body {
     font-style: bold;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
+  .video {
+    height: 300px;
+    width: 500px;
+  }
 }
